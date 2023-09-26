@@ -1,0 +1,93 @@
+let search = document.getElementById('search');
+
+// clear Data
+function clearData() {
+    name.value          = '',
+    departement.value   = '',
+    salary.value        = '',
+    insurance.value     = '',
+    tax.value           = '',
+    net.value           = ''
+    search.value        ='';
+}
+
+// ///////////////////////////////////////////////
+
+
+// search button
+
+let searchType = 'name';
+function getSearchType(id) {
+
+    let search = document.getElementById("search");
+
+    if ( id == 'searchName') {
+
+        searchType = 'name';
+        search.placeholder = 'Enter a name to search';
+        search.style.background = "rgb(116, 154, 197)"
+
+    } else {
+        
+        searchType = 'departement';
+        search.placeholder = 'Enter a departement to search';
+        search.style.background = "rgb(116, 154, 197)"
+    }
+
+    search.focus();
+    clearData()
+}
+
+// ////////////////////////////////////////////////
+
+// search data 
+
+function searchData(value) {
+
+    let table = ``;
+
+   if ( searchType == 'name') {
+
+        for ( let i = 0 ; i < employee.length; i++ ) {
+
+            if (employee[i].name.includes(value)) {
+
+                table +=    ` 
+                    <tr>
+                        <td>${employee[i].name}</td>
+                        <td>${employee[i].departement}</td>
+                        <td>${employee[i].net}</td>
+                        <td> <button onclick="updateData(${i})">EDIT</button> </td>
+                        <td> <button onclick="deleteData()">DELETE</button> </td>
+                    </tr> `
+            }
+        }
+   } else {
+    for ( let i = 0 ; i < employee.length; i++ ) {
+
+        if (employee[i].departement.includes(value)) {
+
+            table +=    ` 
+                <tr>
+                    <td>${employee[i].name}</td>
+                    <td>${employee[i].departement}</td>
+                    <td>${employee[i].net}</td>
+                    <td> <button onclick="updateData(${i})">EDIT</button> </td>
+                    <td> <button onclick="deleteData()">DELETE</button> </td>
+                </tr> `
+        }
+    }
+   }
+
+   document.getElementById('tbody').innerHTML = table ;
+}
+
+// ///////////////////////////////////////////////
+**************************************************************************
+<div class="search">
+            <input onkeyup="searchData(this.value)" type="text" placeholder="" id="search">
+
+
+            <button id="searchName" onclick="getSearchType(this.id)">Search with employee's name</button>
+            <button id="searchDepart" onclick="getSearchType(this.id)">Search with departement's name</button>
+        </div>

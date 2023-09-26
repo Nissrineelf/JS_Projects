@@ -1,0 +1,228 @@
+let name        = document.getElementById('name');
+let departement = document.getElementById('departement');
+let salary      = document.getElementById('salary');
+let insurance   = document.getElementById('insurance');
+let tax         = document.getElementById('tax');
+let net         = document.getElementById('net');
+let save        = document.getElementById('save');
+
+// calculate net salary
+function calc_salary() {
+    if (salary.value != '') {
+        let total = salary.value - insurance.value - tax.value;
+        net.value = total;  
+        net.style.background = 'rgb(211, 218, 233)';
+    } else {
+        net.value = '';
+        net.style.background = 'white';
+    }
+
+    
+}
+//  ///////////////////////////////////////////////
+
+if (localStorage.employee != null) {
+    employee = JSON.parse(localStorage.employee)
+} else {
+    let employee = [];
+}
+
+// Save button
+
+save.addEventListener('click' , function(){
+    
+    let emp = {
+        name: name.value,
+        departement: departement.value,
+        net: net.value,
+
+    }
+    employee.push(emp);
+    localStorage.setItem('employee' , JSON.stringify(employee))
+});
+// ///////////////////////////////////////////////
+
+************************************************************************************************************
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Fredoka', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(57, 105, 145);
+    height: 1000px;
+}
+.head {
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+    margin-top: 20px;
+    color: white;
+}
+
+p{
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 17px;
+    background-color: rgb(211, 218, 233);
+    border-radius: 3px;
+}
+
+.inputs {
+    width: 1000px;
+    margin: auto;
+}
+
+input , .departement{
+    padding-left: 15px;
+    width: calc(50% - 10px);
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 1px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-right: 8px;
+}
+.salary {
+    display: flex;
+    justify-content: space-between;
+}
+
+.salary input {
+    width: calc(25% - 10px);
+}
+
+.search button {
+    width: calc(50% - 20px);
+}
+button{
+    background-color: rgb(27, 54, 85);
+    color: white;
+    border-radius: 1px;
+    border: 0;
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px;
+    width: 100%;
+    height: 40px;
+    font-size: 17px;
+}
+button:hover {
+    background-color: rgb(67, 87, 117);
+}
+
+table {
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    text-align: center;
+}
+
+table th {
+    background-color: rgb(27, 54, 85);
+    padding: 15px;
+    font-size: 15px;
+    margin: 7px;
+}
+
+table td {
+    padding: 15px;
+    border: 1px solid white;
+}
+
+table tr:hover {
+    background-color: rgb(116, 154, 197);
+    color: white;
+}
+
+***********************************************************************************************************
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300&family=Ubuntu:wght@300&display=swap" rel="stylesheet"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Crud</title>
+</head>
+<body>
+    
+
+    <!-- Head -->
+        <div class="head">
+            <h1>Manage Employees</h1>
+            <p>Employees's List - 2022</p>
+        </div>
+    <!-- end head -->
+
+    <!-- inputs design -->
+    <div class="inputs">
+        <input type="text" placeholder="Employee's Name" id="name">
+        
+        <select name="" id="departement" class="departement">
+            <option value="" selected disabled>Departement's name</option>
+            <option value="IT Departement">IT Departement</option>
+            <option value="RH Departement">RH Departement</option>
+            <option value="Finance Departement">Finance Departement</option>
+        </select>
+
+        <div class="salary">
+            <input onkeyup="calc_salary()" type="text" placeholder="Salary" id="salary">
+            <input onkeyup="calc_salary()" type="text" placeholder="Insurance" id="insurance">
+            <input onkeyup="calc_salary()" type="text" placeholder="Income tax" id="tax">
+            <input type="text" placeholder="Net salary" id="net" readonly>
+        </div>
+
+        <button class="" id="save">Save</button>
+
+        <div class="search">
+            <input type="text" placeholder="" id="">
+            <input type="text" placeholder="" id="">
+
+
+            <button>Search with employee's name</button>
+            <button>Search with departement's name</button>
+        </div>
+
+        
+        <button>Delete All</button>
+    </div>
+<!-- end inputs design -->
+
+   <!-- results -->
+        <div class="result">
+            <table width="1000px">
+                <thead>
+                    <th>Employee's name</th>
+                    <th>Departement</th>
+                    <th>Salary</th>
+                    <th>EDIT</th>
+                    <th>DELETE</th>
+                </thead>
+
+                <tbody id="tbody">
+                    
+
+                </tbody>
+            </table>
+        </div>
+<!-- end results -->
+    
+
+    <script src="/js/script.js"></script>
+</body>
+
+*********************************************************************************************************
+

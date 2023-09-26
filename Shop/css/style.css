@@ -1,0 +1,133 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Fredoka', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+header {
+    background-color: rgb(110, 63, 54);
+    padding: 10px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.logreg {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li a:hover {
+    padding: 11px;
+    background-color: rgb(189, 121, 116);
+}
+
+#note {
+    display: block;
+    background-color: rgb(189, 121, 116);
+    color: white;
+    border-radius: 3px;
+    width: 70%;
+    margin: auto;
+}
+
+/* LOGIN Style */
+.form_login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    text-align: center;
+    background-color: rgb(146, 96, 93);
+    padding: 20px 0;
+    border-radius: 3px;
+}
+
+.form_login form input {
+    width: 70%;
+    height: 40px;
+    outline: none;
+    border:  1px ;
+    border: 1px solid rgb(146, 96, 93);
+    margin: 5px;
+    padding: 6px;
+    border-radius: 3px;
+}
+
+.form_login h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.form_login form input[type=submit] {
+    font-size: 22px;
+    height: auto;
+}
+
+.form_login form input[type=submit]:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+/* products design */
+
+.products {
+    width: 70%;
+    margin: 20px;
+}
+
+.products-item {
+    display: flex;
+    border:  1px solid rgb(233, 230, 230);
+    padding: 5px;
+}
+
+.product-item-img {
+    width: 50%;
+    margin-right: 16px;
+}
+
+.product-item-action {
+    flex: 1;
+    text-align: right;
+}
+
+.product-item-buy {
+    background-color: rgb(85, 65, 65);
+    padding: 15px 20px;
+    color: white;
+    font-size: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+.product-item-buy:hover {
+    background-color: rgb(151, 117, 116);
+}

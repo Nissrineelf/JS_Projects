@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300&family=Ubuntu:wght@300&display=swap" rel="stylesheet"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Crud</title>
+</head>
+<body>
+    
+
+    <!-- Head -->
+        <div class="head">
+            <h1>Manage Employees</h1>
+            <p>Employees's List - 2022</p>
+        </div>
+    <!-- end head -->
+
+    <!-- inputs design -->
+    <div class="inputs">
+        <input type="text" placeholder="Employee's Name" id="name">
+        
+        <select name="" id="departement" class="departement">
+            <option value="" selected disabled>Departement's name</option>
+            <option value="IT Departement">IT Departement</option>
+            <option value="RH Departement">RH Departement</option>
+            <option value="Finance Departement">Finance Departement</option>
+        </select>
+
+        <div class="salary">
+            <input onkeyup="calc_salary()" type="text" placeholder="Salary" id="salary">
+            <input onkeyup="calc_salary()" type="text" placeholder="Insurance" id="insurance">
+            <input onkeyup="calc_salary()" type="text" placeholder="Income tax" id="tax">
+            <input type="text" placeholder="Net salary" id="net" readonly>
+        </div>
+
+        <button class="" id="save">Save</button>
+
+        <div class="search">
+            <input onkeyup="searchData(this.value)" type="text" placeholder="" id="search">
+
+
+            <button id="searchName" onclick="getSearchType(this.id)">Search with employee's name</button>
+            <button id="searchDepart" onclick="getSearchType(this.id)">Search with departement's name</button>
+        </div>
+
+        
+        <button onclick="deleteAllData ()">Delete All</button>
+    </div>
+<!-- end inputs design -->
+
+   <!-- results -->
+        <div class="result">
+            <table width="1000px">
+                <thead>
+                    <th>Employee's name</th>
+                    <th>Departement</th>
+                    <th>Salary</th>
+                    <th>EDIT</th>
+                    <th>DELETE</th>
+                </thead>
+
+                <tbody id="tbody">
+                    
+
+                </tbody>
+            </table>
+        </div>
+<!-- end results -->
+    
+
+    <script src="/js/script.js"></script>
+</body>

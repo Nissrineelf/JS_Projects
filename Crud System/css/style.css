@@ -1,0 +1,103 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Fredoka', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(57, 105, 145);
+    height: 1000px;
+}
+.head {
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+    margin-top: 20px;
+    color: white;
+}
+
+p{
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 17px;
+    background-color: rgb(211, 218, 233);
+    border-radius: 3px;
+}
+
+.inputs {
+    width: 1000px;
+    margin: auto;
+}
+
+input , .departement{
+    padding-left: 15px;
+    width: calc(50% - 10px);
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 1px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-right: 8px;
+}
+.salary {
+    display: flex;
+    justify-content: space-between;
+}
+
+.salary input {
+    width: calc(25% - 10px);
+}
+
+.search input {
+    width: 100%;
+}
+
+.search button {
+    width: calc(50% - 20px);
+}
+button{
+    background-color: rgb(27, 54, 85);
+    color: white;
+    border-radius: 1px;
+    border: 0;
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px;
+    width: 100%;
+    height: 40px;
+    font-size: 17px;
+}
+button:hover {
+    background-color: rgb(67, 87, 117);
+}
+
+table {
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    text-align: center;
+}
+
+table th {
+    background-color: rgb(27, 54, 85);
+    padding: 15px;
+    font-size: 15px;
+    margin: 7px;
+}
+
+table td {
+    padding: 15px;
+    border: 1px solid white;
+}
+
+table tr:hover {
+    background-color: rgb(116, 154, 197);
+    color: white;
+}
